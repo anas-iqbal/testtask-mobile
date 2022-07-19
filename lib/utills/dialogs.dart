@@ -64,7 +64,7 @@ class GenericDialog extends StatelessWidget {
                           message,
                           style: Theme.of(context)
                               .textTheme
-                              .headline6!
+                              .headlineSmall!
                               .copyWith(fontSize: 16),
                           textAlign: TextAlign.center,
                         ),
@@ -85,24 +85,24 @@ class GenericDialog extends StatelessWidget {
                     ],
                   ),
                 ),
-                Container(
-                  width: 55.0,
-                  height: 55.0,
-                  padding: EdgeInsets.all(10),
-                  decoration: BoxDecoration(
-                    border: Border.all(width: 4.0, color: Colors.white),
-                    shape: BoxShape.circle,
-                    color: AppTheme.primarySwatchColor,
-                  ),
-                  child:
-                      // Image(image: AssetImage('assets/icons/donate.png')),
-                      Image.asset(
-                    'assets/icons/cancel.png',
-                    // height: 50.0,
-                    color: Colors.white,
-                    fit: BoxFit.contain,
-                  ),
-                ),
+                // Container(
+                //   width: 55.0,
+                //   height: 55.0,
+                //   padding: EdgeInsets.all(10),
+                //   decoration: BoxDecoration(
+                //     border: Border.all(width: 4.0, color: Colors.white),
+                //     shape: BoxShape.circle,
+                //     color: AppTheme.primarySwatchColor,
+                //   ),
+                //   child:
+                //       // Image(image: AssetImage('assets/icons/donate.png')),
+                //       Image.asset(
+                //     'assets/icons/cancel.png',
+                //     // height: 50.0,
+                //     color: Colors.white,
+                //     fit: BoxFit.contain,
+                //   ),
+                // ),
               ],
             ),
           ),

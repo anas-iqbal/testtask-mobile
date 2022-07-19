@@ -4,6 +4,7 @@ import 'package:recipesapp/api/response_handler.dart';
 import 'dart:io';
 
 import 'package:recipesapp/utills/app_constants.dart';
+import 'package:recipesapp/utills/dialogs.dart';
 import 'package:recipesapp/utills/global_utills.dart';
 
 class ExceptionData {
@@ -25,12 +26,11 @@ class ExceptionHandler {
 
     if (showDialog) {
       if (data.message!.trim().toLowerCase() == "internal server error") {
-        // need to create generic app dialog widget then uncomment this line.
-        // await Get.dialog(
-        //     GenericAppDialog(
-        //       message: "System unavailable",
-        //     ),
-        //     barrierDismissible: false);
+        await Get.dialog(
+            GenericDialog(
+              message: "Operation failed.",
+            ),
+            barrierDismissible: false);
       } else if (data.code == 401 &&
           authenticator.getAuthToken != null &&
           authenticator.getAuthToken.replaceAll("bearer ", "").isNotEmpty) {
@@ -38,16 +38,15 @@ class ExceptionHandler {
         authenticator.setAuthToken = "";
       } else {
         print("other +++");
-        // need to create generic app dialog widget then uncomment this line.
-        //   await Get.dialog(
-        //       GenericAppDialog(
-        //         headingText: "Error",
-        //         message: data.message,
-        //       ),
-        //       barrierDismissible: false);
-        // }
+        await Get.dialog(
+            GenericDialog(
+              title: "Error",
+              message: data.message!,
+            ),
+            barrierDismissible: false);
       }
     }
+
     return data;
   }
 

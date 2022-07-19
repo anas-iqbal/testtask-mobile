@@ -19,7 +19,8 @@ class AppTheme {
 class APIConstants {
   static String baseURL =
       "https://lb7u7svcm5.execute-api.ap-southeast-1.amazonaws.com/dev/";
-  static String getClinicsAPI = "${baseURL}ingredients";
+  static String getIngredients = "${baseURL}ingredients";
+  static String getRecipes = "${baseURL}recipes";
 }
 
 class ImageConstants {

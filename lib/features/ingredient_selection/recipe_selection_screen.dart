@@ -70,11 +70,18 @@ class RecipeSelectionScreen extends StatelessWidget {
   }
 
   Widget listTile(IngredientsResponseModel res) {
-    return CheckboxListTile(
-      title: Text(res.title ?? ''),
-      value: true,
-      onChanged: (bool? value) {},
-      secondary: const Icon(Icons.hourglass_empty),
+    return Column(
+      children: [
+        CheckboxListTile(
+          title: Text(res.title ?? ''),
+          value: recipeController.checkIfSelected(res.title),
+          onChanged: (bool? value) {
+            recipeController.toggleSelection(res.title, value);
+          },
+          secondary: const Icon(Icons.add_business_outlined),
+        ),
+        Divider()
+      ],
     );
   }
 }

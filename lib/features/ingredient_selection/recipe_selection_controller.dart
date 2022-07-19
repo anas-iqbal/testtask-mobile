@@ -63,5 +63,27 @@ class RecipeController extends GetxController {
     }
   }
 
-  checkIfSelected(String) {}
+  checkIfSelected(String) {
+    if (listSelectedIngredients.contains(String)) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  void toggleSelection(String? title, bool? value) {
+    if (checkIfSelected(title)) {
+      listSelectedIngredients.remove(title);
+      listIngredients.refresh();
+    } else {
+      if (dateValidation(title)) {
+        listSelectedIngredients.add(title!);
+        listIngredients.refresh();
+      }
+    }
+  }
+
+  bool dateValidation(String? title) {
+    return true;
+  }
 }

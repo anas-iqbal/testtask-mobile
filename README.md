@@ -1,7 +1,7 @@
 # recipesapp
 
-State management: GetX. 
-Generic Http layer & response handler class. 
-Updating widgets reactivily.  
+State management: GetX. <br/>
+Generic Http layer & response handler class. <br/>
+Updating widgets reactivily.  <br/>
 
 

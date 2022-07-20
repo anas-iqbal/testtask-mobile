@@ -31,11 +31,6 @@ class ExceptionHandler {
               message: "Operation failed.",
             ),
             barrierDismissible: false);
-      } else if (data.code == 401 &&
-          authenticator.getAuthToken != null &&
-          authenticator.getAuthToken.replaceAll("bearer ", "").isNotEmpty) {
-        // invalid token clear, logout and nav to splash screen.
-        authenticator.setAuthToken = "";
       } else {
         print("other +++");
         await Get.dialog(

@@ -5,6 +5,7 @@ import 'package:recipesapp/models/ingredients_response_model.dart';
 import 'package:recipesapp/services/food_services.dart';
 import 'package:recipesapp/utills/dialogs.dart';
 import 'package:recipesapp/utills/exception_handler.dart';
+import 'package:recipesapp/utills/global_utills.dart';
 
 class IngredientController extends GetxController {
   var isLoading = false.obs;
@@ -18,22 +19,19 @@ class IngredientController extends GetxController {
   @override
   void onInit() {
     super.onInit();
-    String formattedDate = DateFormat('yyyy-MM-dd').format(selectedDate.value);
+    String formattedDate =
+        DateFormat(GlobalConstants.dateFormat).format(selectedDate.value);
     dateController.text = formattedDate;
     getIngredients();
   }
 
   chooseDate() async {
-    int currentYear = int.parse(DateFormat.y().format(DateTime.now()));
-
     DateTime? pickedDate = await showDatePicker(
       context: Get.context!,
       initialDate: selectedDate.value,
       firstDate: DateTime.now(),
       lastDate: DateTime(
           DateTime.now().year + 1, DateTime.now().month, DateTime.now().day),
-      //initialEntryMode: DatePickerEntryMode.input,
-      // initialDatePickerMode: DatePickerMode.year,
       helpText: 'Select Date',
       cancelText: 'Close',
       confirmText: 'Confirm',
@@ -41,12 +39,11 @@ class IngredientController extends GetxController {
       errorInvalidText: 'Enter valid date range',
       fieldLabelText: 'Date',
       fieldHintText: 'Month/Date/Year',
-      // selectableDayPredicate: disableDate
     );
     if (pickedDate != null && pickedDate != selectedDate.value) {
       selectedDate.value = pickedDate;
       String formattedDate =
-          DateFormat('yyyy-MM-dd').format(selectedDate.value);
+          DateFormat(GlobalConstants.dateFormat).format(selectedDate.value);
       dateController.text = formattedDate;
     }
   }

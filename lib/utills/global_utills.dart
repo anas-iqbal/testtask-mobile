@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+// not required in this app
 class Authenticator {
   String _authToken = '';
 
@@ -13,8 +14,6 @@ class Authenticator {
 }
 
 class GlobalCache {
-  String versionName = "";
-
   bool isTablet() {
     final data = MediaQueryData.fromWindow(WidgetsBinding.instance!.window);
     return data.size.shortestSide < 600 ? false : true;
@@ -22,9 +21,7 @@ class GlobalCache {
 }
 
 class GlobalConstants {
-  static const usernameKey = "username";
-  static const passKey = "password";
-  static const dateFormat = "MM-dd-yyyy hh:mm a";
+  static const dateFormat = "yyyy-MM-dd";
 }
 
 final GlobalCache globalCache = GlobalCache();
